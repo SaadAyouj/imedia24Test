@@ -1,17 +1,15 @@
 package com.saad.imedia24test.dto;
 
-import com.saad.imedia24test.model.Category;
+import com.saad.imedia24test.model.Product;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
 
 @Builder
 @Data
 public class ProductDto {
+
+    private Integer id;
 
     private String name;
 
@@ -24,4 +22,35 @@ public class ProductDto {
     private String picture;
 
     private CategoryDto category;
+
+    public static ProductDto fromEntity(Product product) {
+        if (product == null) {
+            return null;
+        }
+
+        return ProductDto.builder()
+                .id(product.getId())
+                .name(product.getName())
+                .description(product.getDescription())
+                .code(product.getCode())
+                .price(product.getPrice())
+                .picture(product.getPicture())
+                .category(CategoryDto.fromEntity(product.getCategory()))
+                .build();
+    }
+
+    public static Product toEntity(ProductDto productDto) {
+        if (productDto == null) {
+            return null;
+        }
+        Product product = new Product();
+        product.setId(productDto.getId());
+        product.setName(productDto.getName());
+        product.setDescription(productDto.getDescription());
+        product.setCode(productDto.getCode());
+        product.setPrice(productDto.getPrice());
+        product.setPicture(productDto.getPicture());
+        product.setCategory(CategoryDto.toEntity(productDto.getCategory()));
+        return product;
+    }
 }

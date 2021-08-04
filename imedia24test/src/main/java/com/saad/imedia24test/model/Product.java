@@ -8,7 +8,6 @@ import java.math.BigDecimal;
 
 @EqualsAndHashCode()
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity

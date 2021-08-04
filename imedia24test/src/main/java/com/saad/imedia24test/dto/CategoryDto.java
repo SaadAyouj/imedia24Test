@@ -1,20 +1,49 @@
 package com.saad.imedia24test.dto;
 
-import com.saad.imedia24test.model.Product;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.saad.imedia24test.model.Category;
 import lombok.Builder;
 import lombok.Data;
-
-import javax.persistence.Column;
-import javax.persistence.OneToMany;
 import java.util.List;
 
 @Builder
 @Data
 public class CategoryDto {
 
+    private Integer id;
+
     private String name;
 
     private String code;
 
+    @JsonIgnore
     private List<ProductDto> products;
+
+    public static CategoryDto fromEntity(Category category) {
+        if (category == null) {
+            return null;
+            //Throw an exception
+        }
+        //Mapping from Category to CategoryDto
+        return CategoryDto.builder()
+                .id(category.getId())
+                .code(category.getCode())
+                .name(category.getName())
+                .build();
+    }
+
+    public static Category toEntity(CategoryDto categoryDto){
+        if (categoryDto == null) {
+            return null;
+            //Throw Exception
+        }
+
+        //Mapping from CategoryDto to Category
+        Category category = new Category();
+        category.setId(categoryDto.getId());
+        category.setCode(categoryDto.getCode());
+        category.setName(categoryDto.getName());
+
+        return category;
+    }
 }

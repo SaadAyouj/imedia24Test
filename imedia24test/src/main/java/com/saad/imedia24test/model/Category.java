@@ -10,7 +10,6 @@ import java.util.List;
 
 @EqualsAndHashCode()
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
