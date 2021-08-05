@@ -15,7 +15,7 @@ public class ProductDto {
 
     private String description;
 
-    private String code;
+    private String codeProduct;
 
     private BigDecimal price;
 
@@ -32,7 +32,7 @@ public class ProductDto {
                 .id(product.getId())
                 .name(product.getName())
                 .description(product.getDescription())
-                .code(product.getCode())
+                .codeProduct(product.getCodeProduct())
                 .price(product.getPrice())
                 .picture(product.getPicture())
                 .category(CategoryDto.fromEntity(product.getCategory()))
@@ -47,7 +47,7 @@ public class ProductDto {
         product.setId(productDto.getId());
         product.setName(productDto.getName());
         product.setDescription(productDto.getDescription());
-        product.setCode(productDto.getCode());
+        product.setCodeProduct(productDto.getCodeProduct());
         product.setPrice(productDto.getPrice());
         product.setPicture(productDto.getPicture());
         product.setCategory(CategoryDto.toEntity(productDto.getCategory()));

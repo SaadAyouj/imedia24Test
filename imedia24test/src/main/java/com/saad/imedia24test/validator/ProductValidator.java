@@ -36,7 +36,7 @@ public class ProductValidator {
             errors.add("Please enter the picture of the product");
         }
 
-        if (!StringUtils.hasLength(dto.getCode())){
+        if (!StringUtils.hasLength(dto.getCodeProduct())){
             errors.add("Please enter the code of the product");
         }
 
