@@ -11,7 +11,6 @@ import java.util.List;
 @RestController
 public class ProductController implements ProductApi {
 
-    @Autowired
     private ProductService productService;
 
     @Autowired
@@ -21,26 +20,26 @@ public class ProductController implements ProductApi {
 
     @Override
     public ProductDto save(ProductDto dto) {
-        return null;
+        return productService.save(dto);
     }
 
     @Override
     public ProductDto findById(Integer id) {
-        return null;
+        return productService.findById(id);
     }
 
     @Override
     public ProductDto findByCodeProduct(String codeProduct) {
-        return null;
+        return productService.findByCodeProduct(codeProduct);
     }
 
     @Override
     public List<ProductDto> findAll() {
-        return null;
+        return productService.findAll();
     }
 
     @Override
     public void delete(Integer id) {
-
+        productService.delete(id);
     }
 }
