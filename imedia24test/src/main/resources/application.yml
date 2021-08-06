@@ -11,7 +11,7 @@ spring:
     show-sql: false
     # Hibernate DDL Auto (create, create-drop, update)
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
       dialect: org.hibernate.dialect.MySQL5Dialect
 
 server:
@@ -22,3 +22,7 @@ flickr:
   apiSecret: d1bb221efd9478b2
   appKey: 72157719641963559-0099cd38f7a6eee4
   appSecret: 8d030740f9cd580f
+
+
+
+

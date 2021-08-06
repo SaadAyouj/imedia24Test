@@ -37,6 +37,17 @@
 		</dependency>
 
 		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.9.2</version>
+		</dependency>
+
+		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<scope>runtime</scope>
@@ -71,6 +82,44 @@
 						</exclude>
 					</excludes>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>com.github.kongchen</groupId>
+				<artifactId>swagger-maven-plugin</artifactId>
+				<version>3.1.8</version>
+				<configuration>
+					<apiSources>
+						<apiSource>
+							<springmvc>true</springmvc>
+							<locations>
+								<location>com.saad.imedia24test.controller.api</location>
+							</locations>
+							<basePath>http://localhost:8081</basePath>
+							<info>
+								<title>Swagger Api Documentation for imedia24 test application</title>
+								<version>${project.version}</version>
+								<description>Swagger Api documentation for imedia24 test application</description>
+								<contact>
+									<email>saadayoujweb@gmail.com</email>
+									<name>Saad AYOUJ</name>
+									<url>https://saad-ayouj.netlify.app/</url>
+								</contact>
+							</info>
+							<outputPath>${project.build.directory}</outputPath>
+							<outputFormats>json</outputFormats>
+							<swaggerApiReader>com.github.kongchen.swagger.docgen.reader.SpringMvcApiReader</swaggerApiReader>
+							<swaggerDirectory>${project.build.directory}</swaggerDirectory>
+						</apiSource>
+					</apiSources>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>install</phase>
+						<goals>
+							<goal>generate</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 		</plugins>
 	</build>
