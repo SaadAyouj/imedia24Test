@@ -31,6 +31,6 @@ public class Product extends AbstractEntity{
     private String picture;
 
     @ManyToOne
-    @JoinColumn(name = "idcategory")
+    @JoinColumn(name = "idCategory")
     private Category category;
 }

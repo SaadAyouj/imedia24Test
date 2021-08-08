@@ -39,6 +39,11 @@ public class ProductController implements ProductApi {
     }
 
     @Override
+    public List<ProductDto> findAllProductByIdCategory(Integer idCategory) {
+        return productService.findAllProductByIdCategory(idCategory);
+    }
+
+    @Override
     public void delete(Integer id) {
         productService.delete(id);
     }

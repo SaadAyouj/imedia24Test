@@ -1,10 +1,10 @@
 package com.saad.imedia24test.dto;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.saad.imedia24test.model.Category;
 import lombok.Builder;
 import lombok.Data;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Builder
 @Data
@@ -16,7 +16,6 @@ public class CategoryDto {
 
     private String code;
 
-    @JsonIgnore
     private List<ProductDto> products;
 
     public static CategoryDto fromEntity(Category category) {
@@ -29,6 +28,12 @@ public class CategoryDto {
                 .id(category.getId())
                 .code(category.getCode())
                 .name(category.getName())
+                .products(
+                        category.getProducts() != null ?
+                                category.getProducts().stream()
+                                        .map(ProductDto::fromEntity)
+                                        .collect(Collectors.toList()) : null
+                )
                 .build();
     }
 

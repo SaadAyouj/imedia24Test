@@ -40,7 +40,7 @@ public class ProductValidator {
             errors.add("Please enter the code of the product");
         }
 
-        if (dto.getCategory() == null){
+        if (dto.getCategory() == null || dto.getCategory().getId() == null){
             errors.add("Please select a category");
         }
 

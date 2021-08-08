@@ -14,5 +14,7 @@ public interface ProductService {
 
     List<ProductDto> findAll();
 
+    List<ProductDto> findAllProductByIdCategory(Integer idCategory);
+
     void delete(Integer id);
 }

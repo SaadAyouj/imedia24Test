@@ -79,6 +79,13 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    public List<ProductDto> findAllProductByIdCategory(Integer idCategory) {
+        return productRepository.findAllByCategoryId(idCategory).stream()
+                .map(ProductDto::fromEntity)
+                .collect(Collectors.toList());
+    }
+
+    @Override
     public void delete(Integer id) {
         if (id == null) {
             log.error("Product ID is null");
