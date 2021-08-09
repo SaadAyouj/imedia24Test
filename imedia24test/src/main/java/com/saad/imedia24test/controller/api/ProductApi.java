@@ -53,7 +53,7 @@ public interface ProductApi {
     List<ProductDto> findAllProductByIdCategory(@PathVariable("idCategory") Integer idCategory);
 
 
-    @DeleteMapping(value = APP_ROOT + "/products/delete/{idProduct")
+    @DeleteMapping(value = APP_ROOT + "/products/delete/{idProduct}")
     @ApiOperation(value = "Delete a product", notes = "This method is for deleting a product by ID")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "The product has been deleted")

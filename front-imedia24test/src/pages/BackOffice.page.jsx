@@ -1,15 +1,15 @@
 import React from 'react'
 
-const AboutPage = () => {
+const BackOffice = () => {
     const mystyle = {
         marginTop: "30px",
       };
 
     return (
         <div style={mystyle}>
-            <h1>About</h1>
+            <h1>Back office</h1>
         </div>
     )
 }
 
-export default AboutPage
+export default BackOffice
