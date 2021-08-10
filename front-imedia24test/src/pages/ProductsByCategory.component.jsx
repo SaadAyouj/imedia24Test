@@ -2,27 +2,29 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import * as ReactBootStrap from "react-bootstrap"
 
-const ProductList = () => {
+const ProductByCategory = ({ match }) => {
   useEffect(() => {
-    fetchProducts();
-  }, []);
+    fetchProductsCat();
+    console.log(match);
+  });
 
-  const [products, setProducts] = useState([]);
+  const [productsCat, setProductsCat] = useState([]);
 
-  const fetchProducts = async () => {
+  const fetchProductsCat = async () => {
     const data = await fetch (
-      'http://localhost:8081/imedia/v1/products/all'
+        `http://localhost:8081/imedia/v1/products/filter/category/${match.params.id}`
     );
 
-    const products = await data.json();
-    setProducts(products);
+    const productsCat = await data.json();
+    setProductsCat(productsCat);
+    console.log(productsCat);
   }
   return (
     <div>
-      <h1>Product List</h1>
+      <h1>Product List by category</h1>
       <ReactBootStrap.Row>
-      {products.map(product => (
-        <ReactBootStrap.Col key={product.id} style={{ marginTop: '20px' }}>
+      {productsCat.map(product => (
+        <ReactBootStrap.Col key={product.id} style={{ margin: '20px' }}>
            <ReactBootStrap.Card style={{ width: '18rem' }}>
             <ReactBootStrap.Card.Img variant="top" src="https://micoedward.com/wp-content/uploads/2018/04/Love-your-product-2.jpg" fluid={true} alt="Card image"/>
             <ReactBootStrap.Card.Body>
@@ -47,4 +49,4 @@ const ProductList = () => {
   )
 }
 
-export default ProductList
+export default ProductByCategory
