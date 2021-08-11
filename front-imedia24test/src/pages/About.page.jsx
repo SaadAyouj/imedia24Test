@@ -7,7 +7,7 @@ const AboutPage = () => {
       };
 
     return (
-        <div style={mystyle}>
+        <div className="page" style={mystyle}>
             <ReactBootStrap.Row>
             <h1>About this application</h1> <small>made by Saad AYOUJ</small>
             </ReactBootStrap.Row>
@@ -41,6 +41,7 @@ const AboutPage = () => {
                         <span style={{color: "red"}}>And for the FRONT END:</span><br />
                         - ReactJS ( Router / Hooks / ES6)<br />
                         - React Spring for the animations<br />
+                        - React transition group<br />
                         - React BootStrap<br />
                         - API Fixer (for storing pictures in cloud)<br />
                         - Visual Code<br />

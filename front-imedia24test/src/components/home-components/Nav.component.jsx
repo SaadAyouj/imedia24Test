@@ -5,7 +5,8 @@ import {Link} from 'react-router-dom'
 const Nav = () => {
     const mystyle = {
         color: "white",
-        textDecoration: "none"
+        textDecoration: "none",
+        marginRight: "20px"
       };
 
     return (
@@ -17,10 +18,7 @@ const Nav = () => {
                     <ReactBootStrap.Navbar.Collapse id="basic-navbar-nav">
                     <ReactBootStrap.Nav className="me-auto">
                         <ReactBootStrap.Nav.Link>
-                            <Link to="/" style={mystyle}>Products</Link>
-                        </ReactBootStrap.Nav.Link>
-                        <ReactBootStrap.Nav.Link>
-                            <Link to="/back-office" style={mystyle}>Back Office</Link>
+                            <Link to="/" style={mystyle}>All Products</Link>
                         </ReactBootStrap.Nav.Link>
                         <ReactBootStrap.Nav.Link>
                             <Link to="/about" style={mystyle}>About</Link>

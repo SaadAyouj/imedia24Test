@@ -20,7 +20,7 @@ const ProductByCategory = ({ match }) => {
     console.log(productsCat);
   }
   return (
-    <div>
+    <div className="page">
       <h1>Product List by category</h1>
       <ReactBootStrap.Row>
       {productsCat.map(product => (

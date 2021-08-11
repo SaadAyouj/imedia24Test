@@ -38,6 +38,9 @@ const ProductList = () => {
                  Show Details
                 </Link>
               </ReactBootStrap.Button>
+              <ReactBootStrap.Button variant="danger" style ={{marginLeft: "10px"}}>
+               Delete
+              </ReactBootStrap.Button>
             </ReactBootStrap.Card.Body>
           </ReactBootStrap.Card>          
           </ReactBootStrap.Col>

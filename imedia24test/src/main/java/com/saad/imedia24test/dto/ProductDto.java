@@ -19,8 +19,6 @@ public class ProductDto {
 
     private BigDecimal price;
 
-    private String picture;
-
     private CategoryDto category;
 
     public static ProductDto fromEntity(Product product) {
@@ -34,7 +32,6 @@ public class ProductDto {
                 .description(product.getDescription())
                 .codeProduct(product.getCodeProduct())
                 .price(product.getPrice())
-                .picture(product.getPicture())
                 .category(CategoryDto.fromEntity(product.getCategory()))
                 .build();
     }
@@ -49,7 +46,6 @@ public class ProductDto {
         product.setDescription(productDto.getDescription());
         product.setCodeProduct(productDto.getCodeProduct());
         product.setPrice(productDto.getPrice());
-        product.setPicture(productDto.getPicture());
         product.setCategory(CategoryDto.toEntity(productDto.getCategory()));
         return product;
     }

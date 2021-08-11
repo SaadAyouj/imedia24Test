@@ -9,7 +9,7 @@ const HomePage = () => {
   };
 
   return (
-    <div style={mystyle}>
+    <div className="page" style={mystyle}>
       <ReactBootStrap.Row>
         <ReactBootStrap.Col sm={3}>
           <CategoryList />
