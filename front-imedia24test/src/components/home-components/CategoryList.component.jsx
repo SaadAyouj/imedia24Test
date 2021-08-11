@@ -13,7 +13,6 @@ const CategoryList = () => {
       };
       
         const deleteProduct = async (e, id) => {
-          e.preventDefault();
           await Axios.delete(`http://localhost:8081/imedia/v1/categories/delete/${id}`);
       }
 
