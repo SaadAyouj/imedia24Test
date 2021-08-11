@@ -17,6 +17,8 @@ const ProductList = () => {
     const products = await data.json();
     setProducts(products);
   }
+
+  
   return (
     <div>
       <h1>Product List</h1>

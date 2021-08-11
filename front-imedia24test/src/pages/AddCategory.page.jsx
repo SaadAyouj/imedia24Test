@@ -26,6 +26,7 @@ const AddCategory = () => {
         })
         .then(res => {
             console.log(res.data);
+            alert("Product added successfully !")
         })
     }
 

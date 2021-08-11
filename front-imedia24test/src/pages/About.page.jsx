@@ -24,7 +24,6 @@ const AboutPage = () => {
                     - Lombok<br />
                     - Swagger 2 / ui<br />
                     - JUnit 5<br />
-                    - API Flickr (for storing pictures in cloud)<br />
                     - Postman<br />
                     -Git: GitHub<br />
                     <br />
@@ -43,6 +42,7 @@ const AboutPage = () => {
                         - React Spring for the animations<br />
                         - React transition group<br />
                         - React BootStrap<br />
+                        - React Material<br />
                         - API Fixer (for storing pictures in cloud)<br />
                         - Visual Code<br />
                     </p>

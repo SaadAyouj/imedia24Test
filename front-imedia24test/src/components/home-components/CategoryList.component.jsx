@@ -2,16 +2,24 @@ import * as ReactBootStrap from "react-bootstrap"
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
+import Axios from "axios"
 
 const CategoryList = () => {
+
     const mystyle = {
         marginTop: "30px",
         marginLeft: "10px",
         marginBottom: "30px"
       };
+      
+        const deleteProduct = async (e, id) => {
+          e.preventDefault();
+          await Axios.delete(`http://localhost:8081/imedia/v1/categories/delete/${id}`);
+      }
 
       useEffect(() => {
         fetchCategories();
+        deleteProduct();
       }, []);
     
       const [categories, setCategories] = useState([]);
@@ -26,6 +34,7 @@ const CategoryList = () => {
       }
 
 
+
     return (
         <div style={mystyle}>
          
@@ -38,7 +47,7 @@ const CategoryList = () => {
                        {category.name}
                     </Link>
                 </ReactBootStrap.ListGroup.Item>
-                <ReactBootStrap.Button variant="danger">
+                <ReactBootStrap.Button variant="danger" onClick={ () => deleteProduct(category.id)}>
                  Delete this category
                 </ReactBootStrap.Button>
                 </>

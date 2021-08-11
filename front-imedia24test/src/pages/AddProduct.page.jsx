@@ -11,7 +11,9 @@ const AddProduct = () => {
         description: "",
         codeProduct: "",
         price: "",
-        id :""
+        category: {
+            id: ""
+        }
     })
 
     function handle(e) {
@@ -28,10 +30,11 @@ const AddProduct = () => {
             description: product.description,
             codeProduct: product.codeProduct,
             price: product.price,
-            id: parseInt(product.id)
+            category: product.category.id
         })
         .then(res => {
             console.log(res.data);
+            alert("Product added successfully !")
         })
     }
 
@@ -80,7 +83,7 @@ const AddProduct = () => {
             </ReactBootStrap.Form.Group>
             
             <ReactBootStrap.Form.Label>Categories</ReactBootStrap.Form.Label>
-            <ReactBootStrap.Form.Select id="id" onChange={(e)=>handle(e)} value={product.id}  aria-label="categories">
+            <ReactBootStrap.Form.Select id="id" onChange={(e)=>handle(e)} value={product.category.id}  aria-label="categories">
                 <option>Select a category for the product</option>
                 {categories.map(category => (
                  <option key={category.id} value={category.id}>{category.name}</option>  
