@@ -11,26 +11,33 @@ const AddProduct = () => {
         description: "",
         codeProduct: "",
         price: "",
-        category: {
-            id: ""
-        }
+        id_categorie : "",
+        
     })
 
     function handle(e) {
+
        const newProduct = {...product}
        newProduct[e.target.id] = e.target.value
        setProduct(newProduct)
-       console.log(newProduct)
+       console.log("prod : " , product);
+
+    }
+
+    function handeleId(e) {
+        console.log(e.target.value);
+        setProduct([product.id_categorie , e.target.value])
     }
 
     function handleSubmit(e) {
         e.preventDefault();
+     
         Axios.post(url, {
             name: product.name,
             description: product.description,
             codeProduct: product.codeProduct,
             price: product.price,
-            category: product.category.id
+            id: product.id_category
         })
         .then(res => {
             console.log(res.data);
@@ -83,7 +90,7 @@ const AddProduct = () => {
             </ReactBootStrap.Form.Group>
             
             <ReactBootStrap.Form.Label>Categories</ReactBootStrap.Form.Label>
-            <ReactBootStrap.Form.Select id="id" onChange={(e)=>handle(e)} value={product.category.id}  aria-label="categories">
+            <ReactBootStrap.Form.Select id="id_category" onChange={(e)=>handeleId(e)} value={product.id_category}  aria-label="categories">
                 <option>Select a category for the product</option>
                 {categories.map(category => (
                  <option key={category.id} value={category.id}>{category.name}</option>  

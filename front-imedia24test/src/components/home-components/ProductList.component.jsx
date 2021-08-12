@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import * as ReactBootStrap from "react-bootstrap"
+import Axios from 'axios'
 
 const ProductList = () => {
   useEffect(() => {
@@ -18,7 +19,11 @@ const ProductList = () => {
     setProducts(products);
   }
 
-  
+  const deleteProduct = async (id) => {
+    await Axios.delete(`http://localhost:8081/imedia/v1/products/delete/${id}`);
+    fetchProducts();
+}
+
   return (
     <div>
       <h1>Product List</h1>
@@ -40,7 +45,7 @@ const ProductList = () => {
                  Show Details
                 </Link>
               </ReactBootStrap.Button>
-              <ReactBootStrap.Button variant="danger" style ={{marginLeft: "10px"}}>
+              <ReactBootStrap.Button variant="danger" style ={{marginLeft: "10px"}} onClick={() => {deleteProduct (product.id)} }>
                Delete
               </ReactBootStrap.Button>
             </ReactBootStrap.Card.Body>

@@ -12,13 +12,13 @@ const CategoryList = () => {
         marginBottom: "30px"
       };
       
-        const deleteProduct = async (e, id) => {
+      const deleteCategory = async (id) => {
           await Axios.delete(`http://localhost:8081/imedia/v1/categories/delete/${id}`);
+          fetchCategories();
       }
 
       useEffect(() => {
         fetchCategories();
-        deleteProduct();
       }, []);
     
       const [categories, setCategories] = useState([]);
@@ -46,7 +46,7 @@ const CategoryList = () => {
                        {category.name}
                     </Link>
                 </ReactBootStrap.ListGroup.Item>
-                <ReactBootStrap.Button variant="danger" onClick={ () => deleteProduct(category.id)}>
+                <ReactBootStrap.Button variant="danger" onClick={() => {deleteCategory (category.id)} }>
                  Delete this category
                 </ReactBootStrap.Button>
                 </>

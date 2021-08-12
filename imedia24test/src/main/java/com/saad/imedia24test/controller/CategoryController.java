@@ -42,5 +42,6 @@ public class CategoryController implements CategoryApi {
     @Override
     public void delete(Integer id) {
         categoryService.delete(id);
+        
     }
 }
